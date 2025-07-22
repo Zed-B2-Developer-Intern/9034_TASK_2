@@ -1,95 +1,76 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Navbar from '@/components/NavBar'
+import ThemeToggle from '../components/ThemeToggle'
+import {projects} from '@/data/projects'
+import Link from 'next/link'
+import Image from 'next/image'
+import About from '@/components/About'
+import Projects from '@/components/Projects'
+import Skills from "@/components/Skills"
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+import Hero from '@/components/Hero'
+import ScrollAnimation from '@/components/ScrollAnimation'
+import BlogCard from '@/components/BlogCard'
+
+import SectionWrapper from "@/components/SectionWrapper";
+import CardGrid from "@/components/CardGrid";
+
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <main className="min-h-screen bg-white dark:bg-black text-black dark:text-white px-6 md:px-20 py-20">
+        <Navbar />
+        <ScrollAnimation>
+             <Hero />
+        </ScrollAnimation>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <ScrollAnimation>
+          
+             <div className="max-w-5xl mx-auto px-4 py-12">
+      <h1 className="text-3xl font-bold mb-8">My Projects</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <Link key={project.id} href={`/projects/${project.id}`}>
+            <Projects project={project} />
+          </Link>
+        ))}
+      </div>
     </div>
-  );
+       </ScrollAnimation>
+       <ScrollAnimation>
+             <About/>
+      </ScrollAnimation>
+      <ScrollAnimation>
+            <Skills />
+       </ScrollAnimation>
+       <ScrollAnimation>
+        <SectionWrapper id="blog" title=" Blog Posts">
+  <CardGrid>
+  <section className="py-16 px-4" id="blog">
+    
+    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <BlogCard
+        title="Getting Started with Tailwind CSS"
+        summary="Learn how to quickly style modern websites using utility-first CSS framework Tailwind."
+        link="https://yourbloglink.com/tailwind-guide"
+      />
+      <BlogCard
+        title="Why TypeScript is a Game Changer"
+        summary="A deep dive into how TypeScript helps prevent bugs and improve code clarity."
+        link="https://yourbloglink.com/typescript-benefits"
+      />
+    </div>
+  </section>
+   </CardGrid>
+</SectionWrapper>
+</ScrollAnimation>
+      <ScrollAnimation>
+            <Contact />
+      </ScrollAnimation>
+            <Footer />
+      </main>
+    </>
+  )
 }
