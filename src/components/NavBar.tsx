@@ -14,7 +14,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-zinc-900 shadow-md">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-zinc-900 ">
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/">
           <span className="text-xl font-bold text-gray-900 dark:text-white">
@@ -28,12 +28,13 @@ export default function Navbar() {
           <Link href="#about" className="text-gray-700 dark:text-gray-300 hover:underline">
             About
           </Link>
+            <a href="#blog" className="text-gray-700 dark:text-gray-300 hover:underline">
+  Blog
+</a>
           <Link href="#contact" className="text-gray-700 dark:text-gray-300 hover:underline">
             Contact
           </Link>
-          <a href="#blog" className="text-gray-700 dark:text-gray-300 hover:underline">
-  Blog
-</a>
+        
 
           {mounted && (
             <button
