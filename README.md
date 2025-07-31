@@ -70,13 +70,20 @@ It showcases my projects, blogs, and certifications with smooth navigation, dark
 
 ## 🖼️ Screenshots
 
-* `herosection.png`
-* `about.png`
-* `project.png`
-* `skills.png`
-* `blogs.png`
-* `certificate.png`
-* `contact.png`
+ ![herosection.png](ScreenShoots/heroSection.png)
+
+ ![about.png](ScreenShoots/About.png)
+
+ ![project.png](ScreenShoots/project.png)
+
+ ![skills.pn](ScreenShoots/skills.png)
+
+ ![blogs.png](ScreenShoots/blogs.png)
+
+ ![certificate.pn](ScreenShoots.png)
+
+ ![contact.png](ScreenShoots/contect.png)
+
 
 ---
 
